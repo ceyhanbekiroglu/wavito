@@ -3,34 +3,36 @@ class Dog {
         this.name = name
         this.age = age //birth year is better
         this.breed = breed
-        this.event = [] // this.events
+        this.events = [] // this.events --> DONE
         // this.review = []
     }
     greet(dog) {
         console.log(`Hello ${dog.name} this is ${this.name}. I am ${this.age} year old ${this.breed}.`)
+    }    
+}
+    
+
+
+class Human {
+    constructor(name) {
+        this.name = name
+        this.events = []
     }
-    addEvent(event) { // need to go into the Human
-        this.event.push(event)
+    addevents(events) { // need to go into the Human --> DONE
+        this.events.push(events)
     }
 
-    attendEvent(event) { // need to go into the Human
-        event.acceptedBy.push(this)
+    attendevents(events) { // need to go into the Human --> DONE
+        events.acceptedBy.push(this)
     }
     // giveReview(review) { // need to go into the Human
     //     review.gaveBy.push(this)
     //}
 }
 
-class Human {
-    constructor(name) {
+class events {
+    constructor(name) { //name will be enough --> DONE
         this.name = name
-        this.event = []
-    }
-}
-
-class Event {
-    constructor(eventName) { //name will be enough
-        this.eventName = eventName
         this.acceptedBy = []
     }
 }
@@ -46,19 +48,19 @@ const Wave = new Dog('Wave', 1, 'Labrabor Retriever')
 const Kira = new Dog('Kira', 2, 'Border Collie')
 const Jack = new Dog('Jack', 5, 'Jack Russel')
 
-const eventAfternoon = new Event('afternoon walk')
-Kira.addEvent(eventAfternoon)
-Wave.attendEvent(eventAfternoon)
-Jack.attendEvent(eventAfternoon)
+const eventsAfternoon = new events('afternoon walk')
+Kira.addevents(eventsAfternoon)
+Wave.attendevents(eventsAfternoon)
+Jack.attendevents(eventsAfternoon)
 
 console.log(Kira.greet(Wave))
-console.log(Kira, Kira.event[0].acceptedBy)
+console.log(Kira, Kira.events[0].acceptedBy)
 
-const eventWeekend = new Event('weekend trip')
-Wave.addEvent(eventWeekend)
-Kira.attendEvent(eventWeekend)
+const eventsWeekend = new events('weekend trip')
+Wave.addevents(eventsWeekend)
+Kira.attendevents(eventsWeekend)
 
-console.log(Wave, Wave.event[0].acceptedBy)
+console.log(Wave, Wave.events[0].acceptedBy)
 
 // const reviewWave = new Review ('5 stars')
 // Wave.giveReview(reviewWave)
@@ -74,8 +76,8 @@ console.log(Wave, Wave.event[0].acceptedBy)
 
 //COMMENTS:
 //multibable dog owner what will be??
-// dogs cant add events they need the owners to do it. ?? 
-// Ceyhan will attend or create event and there must be an array with which dogs he has.
+// dogs cant add eventss they need the owners to do it. ?? 
+// Ceyhan will attend or create events and there must be an array with which dogs he has.
 //greet --> meet is better for the dogs
-// human class must be added!! only 1 human right now 2 nd is future features....
+// human class must be added!! only 1 human right now 2 nd is future features.... --> HUman class added. DONE
 
