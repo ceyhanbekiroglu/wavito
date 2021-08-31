@@ -1,66 +1,37 @@
-class Dog {
-    constructor(name, age, breed) {
-        this.name = name
-        this.age = age //birth year is better
-        this.breed = breed
-        this.events = [] // this.events --> DONE
-        // this.review = []
-    }
-    greet(dog) {
-        console.log(`Hello ${dog.name} this is ${this.name}. I am ${this.age} year old ${this.breed}.`)
-    }    
-}
-    
+const HumanDog = require("./human");
+const events = require("./events");  
 
-
-class Human {
-    constructor(name) {
-        this.name = name
-        this.events = []
-    }
-    addevents(events) { // need to go into the Human --> DONE
-        this.events.push(events)
-    }
-
-    attendevents(events) { // need to go into the Human --> DONE
-        events.acceptedBy.push(this)
-    }
-    // giveReview(review) { // need to go into the Human
-    //     review.gaveBy.push(this)
-    //}
-}
-
-class events {
-    constructor(name) { //name will be enough --> DONE
-        this.name = name
-        this.acceptedBy = []
-    }
-}
-
-// class Review {
-//     constructor(vet) {
-//         this.vet = vet
-//         this.reviewedBy = []
-//     }
-// }
-
-const Wave = new Dog('Wave', 1, 'Labrabor Retriever')
-const Kira = new Dog('Kira', 2, 'Border Collie')
-const Jack = new Dog('Jack', 5, 'Jack Russel')
+const Wave = new HumanDog('Sinem', 'Wave', 2020, 'Labrabor Retriever')
+const Kira = new HumanDog('Rosa', 'Kira', 2019, 'Border Collie')
+const Jack = new HumanDog('Carlos', 'Jack', 2016, 'Jack Russel')
+const Sand = new HumanDog('Sinem', 'Sand', 2020, 'Labdoodle')
 
 const eventsAfternoon = new events('afternoon walk')
 Kira.addevents(eventsAfternoon)
 Wave.attendevents(eventsAfternoon)
 Jack.attendevents(eventsAfternoon)
+Sand.attendevents(eventsAfternoon)
 
-console.log(Kira.greet(Wave))
+//console.log(Rosa.greet(Wave))
 console.log(Kira, Kira.events[0].acceptedBy)
 
 const eventsWeekend = new events('weekend trip')
 Wave.addevents(eventsWeekend)
 Kira.attendevents(eventsWeekend)
+Sand.attendevents(eventsWeekend)
 
 console.log(Wave, Wave.events[0].acceptedBy)
+
+console.log(Wave.human)
+console.log(Sand.human)
+console.log(Kira.human)
+
+console.log(Wave.breedOf)
+console.log(Kira.breedOf)
+
+console.log(Wave.age)
+console.log(Jack.age)
+
 
 // const reviewWave = new Review ('5 stars')
 // Wave.giveReview(reviewWave)
@@ -70,9 +41,6 @@ console.log(Wave, Wave.events[0].acceptedBy)
 
 // const reviewJack = new Review ('4 stars')
 // Jack.giveReview(reviewJack)
-
-// console.log()
-
 
 //COMMENTS:
 //multibable dog owner what will be??
