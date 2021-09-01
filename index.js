@@ -1,51 +1,49 @@
-const HumanDog = require("./human");
-const events = require("./events");  
+const human = require('./human') // seperate this class human + dog + video coding with coyotiv way
+const Event = require('./event')
 
-const Wave = new HumanDog('Sinem', 'Wave', 2020, 'Labrabor Retriever')
-const Kira = new HumanDog('Rosa', 'Kira', 2019, 'Border Collie')
-const Jack = new HumanDog('Carlos', 'Jack', 2016, 'Jack Russel')
-const Sand = new HumanDog('Sinem', 'Sand', 2020, 'Labdoodle')
+const wave = new human('Sinem', 'Wave', 2020, 'Labrabor Retriever') // small letters in the const
+const rosa = new human('Rosa', 'Kira', 2019, 'Border Collie')
+const carlos = new human('Carlos', 'Jack', 2016, 'Jack Russel')
+const sand = new human('Sinem', 'sand', 2020, 'Labdoodle')
 
-const eventsAfternoon = new events('afternoon walk')
-Kira.addevents(eventsAfternoon)
-Wave.attendevents(eventsAfternoon)
-Jack.attendevents(eventsAfternoon)
-Sand.attendevents(eventsAfternoon)
+const eventAfternoon = new Event('afternoon walk')
+rosa.addEvent(eventAfternoon)
+wave.attendEvent(eventAfternoon)
+carlos.attendEvent(eventAfternoon)
+sand.attendEvent(eventAfternoon)
 
-//console.log(Rosa.greet(Wave))
-console.log(Kira, Kira.events[0].acceptedBy)
+//console.log(rosa.greet(wave))
+console.log(rosa, rosa.event[0].acceptedBy)
 
-const eventsWeekend = new events('weekend trip')
-Wave.addevents(eventsWeekend)
-Kira.attendevents(eventsWeekend)
-Sand.attendevents(eventsWeekend)
+const eventWeekends = new Event('weekend trip')
+wave.addEvent(eventWeekends)
+rosa.attendEvent(eventWeekends)
+sand.attendEvent(eventWeekends)
 
-console.log(Wave, Wave.events[0].acceptedBy)
+console.log(wave, wave.event[0].acceptedBy)
 
-console.log(Wave.human)
-console.log(Sand.human)
-console.log(Kira.human)
+console.log(wave.human)
+console.log(sand.human)
+console.log(rosa.human)
 
-console.log(Wave.breedOf)
-console.log(Kira.breedOf)
+console.log(wave.breedOf)
+console.log(rosa.breedOf)
 
-console.log(Wave.age)
-console.log(Jack.age)
-
+console.log(wave.age)
+console.log(carlos.age)
 
 // const reviewWave = new Review ('5 stars')
-// Wave.giveReview(reviewWave)
+// wave.giveReview(reviewWave)
 
 // const reviewKira = new Review ('4 stars')
-// Kira.giveReview(reviewKira)
+// rosa.giveReview(reviewKira)
 
 // const reviewJack = new Review ('4 stars')
-// Jack.giveReview(reviewJack)
+// carlos.giveReview(reviewJack)
 
 //COMMENTS:
 //multibable dog owner what will be??
-// dogs cant add eventss they need the owners to do it. ?? 
-// Ceyhan will attend or create events and there must be an array with which dogs he has.
+// dogs cant add eventss they need the owners to do it. ??
+// Ceyhan will attend or create event and there must be an array with which dogs he has.
 //greet --> meet is better for the dogs
 // human class must be added!! only 1 human right now 2 nd is future features.... --> HUman class added. DONE
-
