@@ -1,13 +1,10 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable no-console */
-/* eslint-disable new-cap */
-const human = require('./human') // seperate this class human + dog + video coding with coyotiv way
+const Human = require('./human') // seperate this class Human + dog + video coding with coyotiv way
 const Event = require('./event')
 
-const wave = new human('Sinem', 'Wave', 2020, 'Labrabor Retriever') // small letters in the const
-const rosa = new human('Rosa', 'Kira', 2019, 'Border Collie')
-const carlos = new human('Carlos', 'Jack', 2016, 'Jack Russel')
-const sand = new human('Sinem', 'sand', 2020, 'Labdoodle')
+const wave = new Human('Sinem', 'Wave', 2020, 'Labrabor Retriever') // small letters in the const
+const rosa = new Human('Rosa', 'Kira', 2019, 'Border Collie')
+const carlos = new Human('Carlos', 'Jack', 2016, 'Jack Russel')
+const sand = new Human('Sinem', 'sand', 2020, 'Labdoodle')
 
 const eventAfternoon = new Event('afternoon walk')
 rosa.addEvent(eventAfternoon)
@@ -25,9 +22,9 @@ sand.attendEvent(eventWeekends)
 
 console.log(wave, wave.event[0].acceptedBy)
 
-console.log(wave.human)
-console.log(sand.human)
-console.log(rosa.human)
+console.log(wave.Human)
+console.log(sand.Human)
+console.log(rosa.Human)
 
 console.log(wave.breedOf)
 console.log(rosa.breedOf)
@@ -49,4 +46,4 @@ console.log(carlos.age)
 // dogs cant add eventss they need the owners to do it. ??
 // Ceyhan will attend or create event and there must be an array with which dogs he has.
 // greet --> meet is better for the dogs
-// human class must be added!! only 1 human right now 2 nd is future features.... --> HUman class added. DONE
+// Human class must be added!! only 1 Human right now 2 nd is future features.... --> HUman class added. DONE
