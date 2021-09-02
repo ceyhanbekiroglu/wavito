@@ -1,3 +1,6 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-console */
+/* eslint-disable new-cap */
 const human = require('./human') // seperate this class human + dog + video coding with coyotiv way
 const Event = require('./event')
 
@@ -12,7 +15,7 @@ wave.attendEvent(eventAfternoon)
 carlos.attendEvent(eventAfternoon)
 sand.attendEvent(eventAfternoon)
 
-//console.log(rosa.greet(wave))
+// console.log(rosa.greet(wave))
 console.log(rosa, rosa.event[0].acceptedBy)
 
 const eventWeekends = new Event('weekend trip')
@@ -32,10 +35,6 @@ console.log(rosa.breedOf)
 console.log(wave.age)
 console.log(carlos.age)
 
-function foo() {
-  return 3 ? 6 : 8 ? 6 : 1
-}
-
 // const reviewWave = new Review ('5 stars')
 // wave.giveReview(reviewWave)
 
@@ -45,9 +44,9 @@ function foo() {
 // const reviewJack = new Review ('4 stars')
 // carlos.giveReview(reviewJack)
 
-//COMMENTS:
-//multibable dog owner what will be??
+// COMMENTS:
+// multibable dog owner what will be??
 // dogs cant add eventss they need the owners to do it. ??
 // Ceyhan will attend or create event and there must be an array with which dogs he has.
-//greet --> meet is better for the dogs
+// greet --> meet is better for the dogs
 // human class must be added!! only 1 human right now 2 nd is future features.... --> HUman class added. DONE

@@ -6,18 +6,26 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ceyhanbekiroglu/wavito.git"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
+    "*.js": [
+      "pretty-quick --staged",
+      "eslint --fix"
+    ],
     "*.+(json|css|md)": [
       "pretty-quick --staged"
-    ],
-    "*.{js,css,md}": "prettier --write"
+    ]
   },
   "keywords": [
     "software engineering"
@@ -35,7 +43,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4 || ^3 || ^2.3.0 || ^1.7.0",
-    "husky": "^7.0.0",
+    "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1"
