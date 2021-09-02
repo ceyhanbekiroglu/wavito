@@ -32,6 +32,10 @@ console.log(rosa.breedOf)
 console.log(wave.age)
 console.log(carlos.age)
 
+function foo() {
+  return 3 ? 6 : 8 ? 6 : 1
+}
+
 // const reviewWave = new Review ('5 stars')
 // wave.giveReview(reviewWave)
 
