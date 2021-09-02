@@ -33,7 +33,7 @@ console.log(wave.age)
 console.log(carlos.age)
 
 function foo() {
-  return 3 ? 6 : 8 ? 6 : 1
+  return 3
 }
 
 // const reviewWave = new Review ('5 stars')
