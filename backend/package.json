@@ -1,0 +1,71 @@
+{
+  "name": "wavito",
+  "version": "0.0.1",
+  "description": "Wavito project for Coyotiv ",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest",
+    "lint": "lint-staged",
+    "prepare": "husky install",
+    "start": "node ./bin/www",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
+    "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js:fix": "npm run lint:js -- --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceyhanbekiroglu/wavito.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "pretty-quick --staged",
+      "eslint --fix"
+    ],
+    "*.+(json|css|md)": [
+      "pretty-quick --staged"
+    ]
+  },
+  "keywords": [
+    "software engineering"
+  ],
+  "author": "Ceyhan Bekiroglu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ceyhanbekiroglu/wavito/issues"
+  },
+  "homepage": "https://github.com/ceyhanbekiroglu/wavito#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0 || ^6.8.0 || ^7.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4 || ^3 || ^2.3.0 || ^1.7.0",
+    "husky": "^7.0.2",
+    "jest": "^27.2.1",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-jest": "^24.4.2",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "livereload": "^0.9.3",
+    "mongoose": "^6.0.6",
+    "mongoose-autopopulate": "^0.15.0",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  }
+}
