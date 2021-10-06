@@ -2,11 +2,12 @@
 // @ is an alias to /src
 import axios from 'axios'
 import UserCard from '@/components/user-card.vue'
+import Counter from '@/components/counter.vue'
 
 export default {
   name: 'UserList',
   components: {
-    UserCard,
+    UserCard, Counter
   },
   data() {
     return {
@@ -24,7 +25,8 @@ export default {
 <template lang="pug">
   .home
     h1 Wavito App
-    h2 Welcome to your pets' best place. :)  
+    h2 Welcome to your pets' best place. :)
+    
     p The time is: {{ time }}
     div(v-for="user in users")
       router-link(:to="`/users/${user._id}`") {{ user.name }}

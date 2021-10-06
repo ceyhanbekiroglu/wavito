@@ -1,24 +1,29 @@
 <script>
-import axios from 'axios'
+import Counter from '@/components/counter.vue'
 import UserCard from '@/components/user-card.vue'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'UserDetail',
-  components: { UserCard },
+  components: { UserCard, Counter },
   data() {
     return {
-      user: null,
+      user: null
     }
   },
   async created() {
-    const userRequest = await axios.get(`/api/users/${this.$route.params.id}`)
-    this.user = userRequest.data
+    this.user = await this.fetchUser(this.$route.params.id)
   },
+  methods: {
+    ...mapActions(['fetchUser'])
+  }
 }
 </script>
 
 <template lang="pug">
   .about
-    h1 This is an user detail
+    h1 This is a user detail
     UserCard(:user="user" v-if="user")
-  </template>
+    Counter
+</template>
+

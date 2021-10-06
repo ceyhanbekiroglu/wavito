@@ -12,7 +12,7 @@ export default {
 
 <template lang="pug">
 div(v-if="user").box
-  h1 {{ user.name }} ({{ user.age }})
+  h1 {{ user.name }} ({{ user.dogs }})
   p Bio: {{ user.bio || defaultBio }}  
 </template>
 
