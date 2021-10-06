@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */
 const express = require('express')
@@ -37,11 +38,25 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/initialize', async (req, res) => {
-  const sinem = await User.create({ name: 'Sinem' })
-  const rosa = await User.create({ name: 'Rosa' })
-  const carlos = await User.create({ name: 'Carlos' })
-  const ceyhan = await User.create({ name: 'Ceyhan' })
-  const michael = await User.create({ name: 'Michael' })
+  const sinem = new User({ name: 'Sinem', email: 'sinem@sinem.com' })
+  await sinem.setPassword('test')
+  await sinem.save()
+
+  const rosa = new User({ name: 'Rosa', email: 'rosa@rosa.com' })
+  await rosa.setPassword('test')
+  await rosa.save()
+
+  const carlos = new User({ name: 'Carlos', email: 'carlos@carlos.com' })
+  await carlos.setPassword('test')
+  await carlos.save()
+
+  const ceyhan = new User({ name: 'Ceyhan', email: 'ceyhan@ceyhan.com' })
+  await ceyhan.setPassword('test')
+  await ceyhan.save()
+
+  const michael = new User({ name: 'Michael', email: 'michael@michael.com' })
+  await michael.setPassword('test')
+  await michael.save()
 
   const wave = await Dog.create({ dogName: 'Wave', breed: 'Labrabor Retriever', birthYear: 2020, user: sinem })
   const kira = await Dog.create({ dogName: 'Kira', breed: 'Border Collie', birthYear: 2019, user: rosa })
@@ -97,11 +112,14 @@ router.get('/initialize', async (req, res) => {
   // michael.like = (mishu, 'I am a grumpy cat but don`t tell anybody:). I don`t like doing things.')
   // michael.like = (mishu, 'I don`t like doing things.')
   // console.log(wave.profile)
+
   // console.log(bond.profile)
   // console.log(pers.profile)
   // console.log(mishu.profile)
 
-  // console.log(sinem.giveFeedback(5, vovet))
+  //sinem.giveFeedback(5, vovet)
+  //console.log(sinem.giveFeedback(5, vovet))
+
   // console.log(vovet.ratings)
   // console.log(wave.likes)
   // console.log(sinem.dogs)

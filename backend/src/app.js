@@ -4,15 +4,31 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const passport = require('passport')
+const User = require('./models/users')
 
-require('./database-connection')
+
+const mongooseConnection = require('./database-connection')
 require('livereload').createServer({ usePolling: true })
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const dogsRouter = require('./models/dog')
+const accountRouter = require('./routes/account')
 
 const app = express()
+
+// if (app.get('env') == 'development') {
+//   /* eslint-disable-next-line */
+//   app.use(require('connect-livereload')())
+//   /* eslint-disable-next-line */
+//   require('livereload')
+//     .createServer({ extraExts: ['pug'] })
+//     .watch([`${__dirname}/public`, `${__dirname}/views`])
+// }
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -22,9 +38,37 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+
+app.use(
+  session({
+    secret: ['thisisnotasupersecuresecretsecret', 'thisisanothersupernotsosecretsecret'],
+    store: new MongoStore({ mongooseConnection, stringify: false }),
+    cookie: {
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      path: '/api',
+    },
+  })
+)
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+passport.use(User.createStrategy())
+
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use('/api', (req, res, next) => {
+  req.session.viewCount = req.session.viewCount || 0
+  // eslint-disable-next-line no-plusplus
+  req.session.viewCount++
+  next()
+})
+
 app.use('/api/', indexRouter)
+app.use('/api/account', accountRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/dogs', dogsRouter)
 

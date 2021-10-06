@@ -19,6 +19,8 @@ mongoose
   .then(() => console.log('connection established'))
   .catch(console.log)
 
+module.exports = mongoose.connection
+
 // const Panda = mongoose.model('Panda', { name: String, age: Number })
 
 // async function main() {
