@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:alpine AS BUILDER
 
 WORKDIR /app
 
@@ -9,4 +9,17 @@ RUN npm install
 ADD public ./public
 ADD .browserslistrc .prettierrc .eslintrc.js babel.config.js vue.config.js ./
 
-CMD [ "npm", "run", "serve" ]
+ADD src ./src
+ADD public ./public
+
+RUN npm run build
+
+FROM node:alpine 
+
+WORKDIR /app
+RUN npm i - serve
+
+COPY --from=BUILDER /app/dist ./
+
+CMD serve -l $PORT
+
