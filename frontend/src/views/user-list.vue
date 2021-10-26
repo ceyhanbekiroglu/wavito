@@ -25,7 +25,7 @@ export default {
 <template lang="pug">
   .home
     h1 Wavito App
-    h2 Welcome to your pets' best place. :) ('frontend')
+    h2 Welcome to your pets' best place. :) ('t480s')
     
     p The time is: {{ time }}
     div(v-for="user in users")
