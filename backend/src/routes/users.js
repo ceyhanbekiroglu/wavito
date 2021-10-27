@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable spaced-comment */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-vars */

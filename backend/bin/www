@@ -23,8 +23,8 @@ var app = require('../src/app')
 /**
  * Get port from environment and store in Express.
  */
-// console.log('port', process.env.PORT || '3000')
-var port = normalizePort(process.env.PORT || '3000')
+console.log('port', process.env.PORT || '3000')
+var port = normalizePort(process.env.PORT)
 app.set('port', port)
 
 // const port = normalizePort(process.env.PORT || '3000');
@@ -37,14 +37,6 @@ app.set('port', port)
  */
 
 var server = http.createServer(app)
-
-app.get('io').attach(server, {
-  cors: {
-    origin: true,
-
-    credentials: true,
-  },
-})
 
 /**
  * Listen on provided port, on all network interfaces.

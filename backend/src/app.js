@@ -12,7 +12,6 @@ const User = require('./models/users')
 
 
 const mongooseConnection = require('./database-connection')
-const socketService = require('./socket-service')
 require('livereload').createServer({ usePolling: true })
 
 const indexRouter = require('./routes/index')
@@ -39,8 +38,6 @@ app.use(
 // }
 
 app.set('trust proxy', 1)
-
-app.set('io', socketService)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -74,12 +71,12 @@ passport.deserializeUser(User.deserializeUser())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/api', (req, res, next) => {
-  req.session.viewCount = req.session.viewCount || 0
-  // eslint-disable-next-line no-plusplus
-  req.session.viewCount++
-  next()
-})
+// app.use('/api', (req, res, next) => {
+//   req.session.viewCount = req.session.viewCount || 0
+//   // eslint-disable-next-line no-plusplus
+//   req.session.viewCount++
+//   next()
+// })
 
 app.use('/api/', indexRouter)
 app.use('/api/account', accountRouter)

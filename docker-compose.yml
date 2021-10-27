@@ -10,7 +10,7 @@ services:
       - "traefik.http.routers.frontend.rule=Host(`wavito.localhost`)"
       - "traefik.http.routers.frontend.entrypoints=web"
     ports:
-      - 8080
+      - 5000:8080
     volumes:
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public
@@ -24,12 +24,10 @@ services:
       # - MONGODB_PASSWORD
       # - MONGODB_DATABASE
       - MONGODB_CONNECTION_STRING=mongodb://mongo/cicd201
-      # - PORT = 3000
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=(Host(`wavito.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))"
+      - "traefik.http.routers.backend.rule=(Host(`wavito.localhost`) && PathPrefix(`/api`))"
       - "traefik.http.routers.backend.entrypoints=web"
-
     ports:
       - 3000:3000
       - 35729:35729
