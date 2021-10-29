@@ -15,7 +15,7 @@ export default {
 <template lang="pug">
  #app
     #nav
-      router-link(to="/") Home &nbsp
+      router-link(to="/*") Home &nbsp
       router-link(to="/profile") Profile &nbsp
       router-link(to="/login") Login &nbsp
       router-link(to="/register") Register &nbsp
