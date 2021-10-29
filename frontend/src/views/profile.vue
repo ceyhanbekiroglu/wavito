@@ -40,10 +40,7 @@ export default {
 <template lang="pug">
   .home
     h1 Wavito App 
-    h2 Welcome to your pets' best place {{user.name}} :)
-
-
-
+    h2 Welcome back {{user.name}} :)
     p The time is: {{ time }}
     div(v-for="user in users")
       router-link(:to="`/users/${user._id}`") {{ user.name }}
@@ -62,7 +59,7 @@ export default {
             span {{ message.author }}:&nbsp;
             span {{ message.body }}
       form(@submit="sendMessage")
-        input(type="text" v-model="message")
+        input(type="text" v-model="message") 
         input(type="submit" value="Send message")
 
 </template>
