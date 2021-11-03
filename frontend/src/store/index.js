@@ -51,6 +51,14 @@ const store = new Vuex.Store({
       const userRequest = await axios.get(`/api/users/${id}`)
       return userRequest.data
     },
+    async fetchDog(store, id) {
+      const dogRequest = await axios.get(`/api/dogs/${id}`)
+      return dogRequest.data
+    },
+    async fetchEvent(store, id) {
+      const eventRequest = await axios.get(`/api/events/${id}`)
+      return eventRequest.data
+    },
     async fetchUsers() {
       const usersRequest = await axios.get('/api/users')
       return usersRequest.data
@@ -74,7 +82,7 @@ const store = new Vuex.Store({
       await axios.delete('/api/account/session')
       commit(mutations.SET_USER, null)
     },
-    
+
     async goLive({ state, commit }) {
       socket.emit('go live', state.user._id, status => {
         commit(mutations.SET_LIVE_STREAM, state.user._id)

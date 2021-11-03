@@ -57,6 +57,22 @@ export default function init(store) {
           return next()
         },
       },
+      {
+        path: '/dogs/:id',
+        name: 'DogDetail',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/dog-detail.vue'),
+      },
+      {
+        path: '/events/:id',
+        name: 'EventDetail',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/event-detail.vue'),
+      },
     ],
   })
 }

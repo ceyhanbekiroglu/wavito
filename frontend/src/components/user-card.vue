@@ -19,7 +19,7 @@ div(v-if="user").box
   div(v-if='!user.dogs.length')
     | no dogs yet
 
-  h2 {{ user.name }} s events
+  h2 {{ user.name }} has {{ user.events.length}} event(s) 
   .event(v-for="event in user.events")
     router-link(:to="`/events/${event._id}`") {{ event.name }}
   div(v-if='!user.events.length')
@@ -27,11 +27,7 @@ div(v-if="user").box
 
   
 
-  .div 
-  button(@click="user.addDog") Add Dog
-
-  .div
-  button(@click="user.addEvent") Add Event
+ 
 </template>
 
 <style lang="scss" scoped>

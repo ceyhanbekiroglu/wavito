@@ -10,14 +10,14 @@ const passport = require('passport')
 const cors = require('cors')
 const User = require('./models/users')
 
-
 const mongooseConnection = require('./database-connection')
 const socketService = require('./socket-service')
 require('livereload').createServer({ usePolling: true })
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
-const dogsRouter = require('./models/dog')
+const dogsRouter = require('./routes/dogs')
+const eventsRouter = require('./routes/events')
 const accountRouter = require('./routes/account')
 
 const app = express()
@@ -25,7 +25,7 @@ const app = express()
 app.use(
   cors({
     origin: true,
-    credentials: true
+    credentials: true,
   })
 )
 
@@ -58,7 +58,7 @@ app.use(
     cookie: {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       path: '/api',
-      sameSite: 'nune',
+      sameSite: 'none',
       secure: true,
     },
   })
@@ -85,6 +85,7 @@ app.use('/api/', indexRouter)
 app.use('/api/account', accountRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/dogs', dogsRouter)
+app.use('/api/events', eventsRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

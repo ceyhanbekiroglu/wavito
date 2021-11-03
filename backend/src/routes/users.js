@@ -144,6 +144,7 @@ router.get('/:userId', async (req, res) => {
 router.post('/:userId/adds', async (req, res) => {
   const user = await User.findById(req.params.userId)
   const dog = await Dog.findById(req.body.dogId)
+  const event = await Event.findById(req.body.eventId)
 
   await user.addDog(dog)
   res.sendStatus(200)

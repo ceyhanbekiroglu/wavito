@@ -21,7 +21,7 @@ export default {
   async created() {
     const usersRequest = await axios.get('/api/users')
     this.users = usersRequest.data
-    // this.users = await this.fetchUsers()
+    this.users = await this.fetchUsers()
   },
   methods: {
     ...mapActions(['fetchUsers', 'goLive', 'sendMessageToLiveStream', 'joinStream']),
