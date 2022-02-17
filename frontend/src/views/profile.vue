@@ -40,7 +40,7 @@ export default {
 <template lang="pug">
   .home
     h1 Wavito App 
-    h2 Welcome back {{user.name}} :)
+    h2 Welcome back {{ user.name }} :)
     p The time is: {{ time }}
     div(v-for="user in users")
       router-link(:to="`/users/${user._id}`") {{ user.name }}

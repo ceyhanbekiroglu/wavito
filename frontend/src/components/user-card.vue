@@ -12,6 +12,9 @@ export default {
 
 <template lang="pug">
 div(v-if="user").box
+  .photo-box
+    img(alt="wavito_user" width=300 src="../assets/smile-pp.jpg")
+
   h1 {{ user.name }} has {{ user.dogs.length }} dog(s)
   .dog(v-for="dog in user.dogs")
     router-link(:to="`/dogs/${dog._id}`") {{ dog.dogName }}
@@ -32,9 +35,18 @@ div(v-if="user").box
 
 <style lang="scss" scoped>
 .box {
+  width: 400px;
   padding: 2rem;
   border: 1px solid #333;
-  background: #00CCAD;
+  background: #00ccad;
+  border-radius: 0.3rem;
+}
+.photo-box {
+  width: 300px;
+  height: 300px;
+  padding: 2rem;
+  border: 1px solid #333;
+  background: #00ccad;
   border-radius: 0.3rem;
 }
 </style>
