@@ -90,11 +90,11 @@ module.exports = mongoose.model('users', userSchema)
 // giveReview(review) { // need to go into the Human
 //     review.gaveBy.push(this)
 //
-//   get age() {
-//     return `### ${this.dogName} is ${
-//       year.getFullYear() - this.birthYear
-//     } year old.`;
-//   }
+  // get age() {
+  //   return `### ${this.dogName} is ${
+  //     year.getFullYear() - this.birthYear
+  //   } year old.`;
+  // }
 
 // Comments
 // addDog must be added.
